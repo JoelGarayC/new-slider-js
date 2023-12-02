@@ -1,0 +1,144 @@
+{
+  "slider": [
+    {
+      "title": "Contenidos exclusivos 1",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=112",
+      "imageMobile": "https://picsum.photos/400/300/?image=112",
+      "link": "https://picsum.photos/800/600/?image=112"
+    },
+    {
+      "title": "Contenidos exclusivos 2",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=113",
+      "imageMobile": "https://picsum.photos/400/300/?image=113",
+      "link": "https://picsum.photos/800/600/?image=113"
+    },
+    {
+      "title": "Contenidos exclusivos 3",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=114",
+      "imageMobile": "https://picsum.photos/400/300/?image=114",
+      "link": "https://picsum.photos/800/600/?image=114"
+    },
+    {
+      "title": "Contenidos exclusivos 4",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=115",
+      "imageMobile": "https://picsum.photos/400/300/?image=115",
+      "link": "https://picsum.photos/800/600/?image=115"
+    },
+    {
+      "title": "Contenidos exclusivos 5",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=116",
+      "imageMobile": "https://picsum.photos/400/300/?image=116",
+      "link": "https://picsum.photos/800/600/?image=116"
+    },
+    {
+      "title": "Contenidos exclusivos 6",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=117",
+      "imageMobile": "https://picsum.photos/400/300/?image=117",
+      "link": "https://picsum.photos/800/600/?image=117"
+    },
+    {
+      "title": "Contenidos exclusivos 7",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=118",
+      "imageMobile": "https://picsum.photos/400/300/?image=118",
+      "link": "https://picsum.photos/800/600/?image=118"
+    },
+    {
+      "title": "Contenidos exclusivos 8",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=119",
+      "imageMobile": "https://picsum.photos/400/300/?image=119",
+      "link": "https://picsum.photos/800/600/?image=119"
+    },
+    {
+      "title": "Contenidos exclusivos 9",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=120",
+      "imageMobile": "https://picsum.photos/400/300/?image=120",
+      "link": "https://picsum.photos/800/600/?image=120"
+    },
+    {
+      "title": "Contenidos exclusivos 10",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=121",
+      "imageMobile": "https://picsum.photos/400/300/?image=121",
+      "link": "https://picsum.photos/800/600/?image=121"
+    },
+    {
+      "title": "Contenidos exclusivos 11",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=122",
+      "imageMobile": "https://picsum.photos/400/300/?image=122",
+      "link": "https://picsum.photos/800/600/?image=122"
+    },
+    {
+      "title": "Contenidos exclusivos 12",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=123",
+      "imageMobile": "https://picsum.photos/400/300/?image=123",
+      "link": "https://picsum.photos/800/600/?image=123"
+    },
+    {
+      "title": "Contenidos exclusivos 13",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=124",
+      "imageMobile": "https://picsum.photos/400/300/?image=124",
+      "link": "https://picsum.photos/800/600/?image=124"
+    },
+    {
+      "title": "Contenidos exclusivos 14",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=125",
+      "imageMobile": "https://picsum.photos/400/300/?image=125",
+      "link": "https://picsum.photos/800/600/?image=125"
+    },
+    {
+      "title": "Contenidos exclusivos 15",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=126",
+      "imageMobile": "https://picsum.photos/400/300/?image=126",
+      "link": "https://picsum.photos/800/600/?image=126"
+    },
+    {
+      "title": "Contenidos exclusivos 16",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=127",
+      "imageMobile": "https://picsum.photos/400/300/?image=127",
+      "link": "https://picsum.photos/800/600/?image=127"
+    },
+    {
+      "title": "Contenidos exclusivos 17",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=128",
+      "imageMobile": "https://picsum.photos/400/300/?image=118",
+      "link": "https://picsum.photos/800/600/?image=128"
+    },
+    {
+      "title": "Contenidos exclusivos 18",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=129",
+      "imageMobile": "https://picsum.photos/400/300/?image=129",
+      "link": "https://picsum.photos/800/600/?image=129"
+    },
+    {
+      "title": "Contenidos exclusivos 19",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=130",
+      "imageMobile": "https://picsum.photos/400/300/?image=130",
+      "link": "https://picsum.photos/800/600/?image=130"
+    },
+    {
+      "title": "Contenidos exclusivos 20",
+      "description": "Información de calidad y profundidad a tu alcance",
+      "image": "https://picsum.photos/800/600/?image=131",
+      "imageMobile": "https://picsum.photos/400/300/?image=131",
+      "link": "https://picsum.photos/800/600/?image=131"
+    }
+  ]
+}

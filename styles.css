@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  overscroll-behavior-x: none;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+}
+
+::selection {
+  background: none;
+}
+
+.slider-container {
+  /* --gap-mobile: 0.8rem;
+  --gap-desktop: 1.25rem;
+  --minHeight-mobile: auto;
+  --minHeight-desktop: auto;
+
+  --width-img-mobile: 260px;
+  --width-img-desktop: 380px;
+  --height-img-mobile: 170px;
+  --height-img-desktop: 240px; */
+
+  margin: auto;
+  max-width: 1920px;
+  overflow: hidden;
+  width: 100%;
+  padding: 25px 0;
+  display: grid;
+  min-height: var(--minHeight-mobile);
+  grid-gap: var(--gap-mobile);
+  gap: var(--gap-mobile);
+}
+
+.slider-loader {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 120px auto;
+}
+
+.slider-loader::after {
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #cf9f0d;
+  border-color: #cf9f0d transparent #cf9f0d transparent;
+  animation: animate-loader 1.2s linear infinite;
+}
+
+.slider-wrapper {
+  position: relative;
+  overflow: inherit;
+}
+
+.slider {
+  display: flex;
+  width: max-content;
+}
+
+.slider-btns {
+  display: none;
+}
+
+.slider-btns button {
+  position: absolute;
+  top: 0;
+  width: 2rem;
+  height: 100%;
+  cursor: pointer;
+}
+
+.slider-btns button:first-child {
+  left: 0;
+}
+
+.slider-btns button:last-child {
+  right: 0;
+}
+
+.slide {
+  display: block;
+  padding-right: var(--gap-mobile);
+  pointer-events: none;
+}
+
+.slide picture,
+.slide img {
+  border-radius: 10px;
+  display: block;
+  height: var(--height-img-mobile);
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  pointer-events: all;
+  width: var(--width-img-mobile);
+  background: #ededed;
+}
+
+@media screen and (min-width: 768px) {
+  .slider-container {
+    min-height: var(--minHeight-desktop);
+    grid-gap: var(--gap-desktop);
+    gap: var(--gap-desktop);
+  }
+  .slider-btns {
+    display: block;
+  }
+
+  .slide {
+    padding-right: var(--gap-desktop);
+  }
+  .slide picture,
+  .slide img {
+    height: var(--height-img-desktop);
+    width: var(--width-img-desktop);
+  }
+}
+
+@keyframes animate-loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
