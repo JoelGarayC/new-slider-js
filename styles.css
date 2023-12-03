@@ -5,7 +5,7 @@
 }
 
 body {
-  overscroll-behavior-x: none;
+  overscroll-behavior: none;
   min-height: 100dvh;
   display: grid;
   place-items: center;
