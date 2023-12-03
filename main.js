@@ -265,8 +265,8 @@ function generateSliderHTML(sliderData) {
       ${sliderData.map((slideData) => generateSlideHTML(slideData)).join('')}
     </div>
     <div class="slider-btns">
-        <button onselectstart="() => return false;"><</button>
-        <button onselectstart="() => return false;">></button>
+      <button type="button"><</button>
+      <button type="button">></button>
     </div>
   </div>
   `
