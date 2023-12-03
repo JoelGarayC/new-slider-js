@@ -125,10 +125,14 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
 
   prevBtn.addEventListener('contextmenu', (event) => {
     event.preventDefault()
+    event.stopPropagation()
+    return false
   })
 
   nextBtn.addEventListener('contextmenu', (event) => {
     event.preventDefault()
+    event.stopPropagation()
+    return false
   })
 
   nextBtn.addEventListener('touchstart', (e) => {
