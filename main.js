@@ -126,12 +126,16 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
   prevBtn.addEventListener('contextmenu', (event) => {
     event.preventDefault()
     event.stopPropagation()
+    event.cancelBubble = true
+    event.returnValue = false
     return false
   })
 
   nextBtn.addEventListener('contextmenu', (event) => {
     event.preventDefault()
     event.stopPropagation()
+    event.cancelBubble = true
+    event.returnValue = false
     return false
   })
 
