@@ -123,6 +123,14 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
 
   const extraSpeed = 5
 
+  prevBtn.addEventListener('contextmenu', (event) => {
+    event.preventDefault()
+  })
+
+  nextBtn.addEventListener('contextmenu', (event) => {
+    event.preventDefault()
+  })
+
   nextBtn.addEventListener('touchstart', (e) => {
     console.log('touchstart')
     e.stopPropagation()
