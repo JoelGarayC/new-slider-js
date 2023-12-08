@@ -16,15 +16,15 @@ body {
 }
 
 .slider-container {
-  /* --gap-mobile: 0.8rem;
+  /* --gap-mobile: 0.625rem;
   --gap-desktop: 1.25rem;
   --minHeight-mobile: auto;
   --minHeight-desktop: auto;
 
-  --width-img-mobile: 260px;
+  --width-img-mobile: 178px;
   --width-img-desktop: 380px;
-  --height-img-mobile: 170px;
-  --height-img-desktop: 240px; */
+  --height-img-mobile: 100px;
+  --height-img-desktop: 214px; */
 
   margin: auto;
   max-width: 1920px;
@@ -100,7 +100,7 @@ body {
 
 .slide picture,
 .slide img {
-  border-radius: 10px;
+  border-radius: 8px;
   display: block;
   height: var(--height-img-mobile);
   object-fit: cover;
@@ -109,6 +109,34 @@ body {
   pointer-events: all;
   width: var(--width-img-mobile);
   background: #ededed;
+}
+
+.title {
+  padding: 1rem;
+  cursor: pointer;
+  border: 1px solid rgb(34, 34, 34);
+}
+
+.content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.3s grid-template-rows ease;
+}
+
+/* article:hover .content {
+  grid-template-rows: 1fr;
+} */
+
+article {
+  border: 1px solid red;
+}
+
+.content > div {
+  overflow: hidden;
+}
+
+.content p {
+  margin: 1rem;
 }
 
 @media screen and (min-width: 768px) {

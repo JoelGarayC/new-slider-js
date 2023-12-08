@@ -2,18 +2,18 @@ const SLIDER_URL = './data.json'
 const SITE = ''
 const ITEMS = 20
 const ITEMS_ROW = 2
-const SPEED_ITEMS_ROW = [0.4, 0.4]
-const DIRECTION_ROW = ['right', 'left']
+const SPEED_ITEMS_ROW = [0.4, 0.7]
+const DIRECTION_ROW = ['left', 'left']
 const DESING = {
   mobile: {
-    widthItem: '260px',
-    heightItem: '170px',
-    gapSlider: '0.8rem',
+    widthItem: '178px',
+    heightItem: '100px',
+    gapSlider: '0.625rem',
     minHeightContainer: 'auto'
   },
   desktop: {
     widthItem: '380px',
-    heightItem: '240px',
+    heightItem: '214px',
     gapSlider: '1.25rem',
     minHeightContainer: 'auto'
   }
@@ -22,47 +22,48 @@ const DESING = {
 function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
   const slider = sliderWrapper.children[0]
   const sliderBtn = sliderWrapper.children[1]
-
   let slideWidth = slider.firstElementChild.offsetWidth
   let totalWidth = slideWidth * middleIndex
 
-  let translateValue = -totalWidth * 2
-  let isMouseOver = false
-  let isDragging = false
-  let isPressing = false
-  let dragStartX = 0
-
-  // Update widths on window resize
   const updateWidths = () => {
     slideWidth = slider.firstElementChild.offsetWidth
     totalWidth = slideWidth * middleIndex
   }
   window.addEventListener('resize', updateWidths)
 
-  const startAnimation = () => {
-    if (!isMouseOver && !isDragging) {
-      translateValue =
-        direction === 'left'
-          ? translateValue - speed
-          : direction === 'right'
-          ? translateValue + speed
-          : translateValue - speed
+  let translateValue = -totalWidth * 2
+  let isMouseOver = false // el cursor esta encima  del slider
+  let isDragging = false // se está deslizando en pantalla touch
 
-      slider.style.transform = `translateX(${translateValue}px)`
+  function updateTranslateValue(delta) {
+    translateValue += delta
+    slider.style.transform = `translateX(${translateValue}px)`
 
-      if (
-        Math.abs(translateValue) >= totalWidth * 3 ||
-        Math.abs(translateValue) <= totalWidth
-      ) {
-        translateValue = -totalWidth * 2
-      }
+    const limitSlider =
+      Math.abs(translateValue) >= totalWidth * 3 ||
+      Math.abs(translateValue) <= totalWidth
 
-      requestAnimationFrame(startAnimation)
+    if (limitSlider) {
+      translateValue = -totalWidth * 2
     }
   }
 
-  // Update event :hover change
-  const handleHover = (e) => {
+  function animateSlider() {
+    if (!isMouseOver && !isDragging) {
+      updateTranslateValue(
+        direction === 'left' ? -speed : direction === 'right' ? speed : -speed
+      )
+      requestAnimationFrame(animateSlider)
+    }
+  }
+
+  /*
+
+  EVENT HOVER IN  SLIDER
+
+  */
+
+  function handleHover(e) {
     e.stopPropagation()
     const isDesktop =
       window.innerWidth >= 768 && 'ontouchstart' in window === false
@@ -70,171 +71,105 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
       isMouseOver = true
     }
   }
-  const handleHoverOut = (e) => {
+
+  function handleHoverOut(e) {
     e.stopPropagation()
     if (isMouseOver) {
       isMouseOver = false
-      requestAnimationFrame(startAnimation)
+      requestAnimationFrame(animateSlider)
     }
   }
-  sliderWrapper.addEventListener('mouseover', (e) => handleHover(e))
-  sliderWrapper.addEventListener('mouseleave', (e) => handleHoverOut(e))
 
-  // for mobile event touch
-  slider.addEventListener('touchstart', (e) => {
+  sliderWrapper.addEventListener('mouseover', handleHover)
+  sliderWrapper.addEventListener('mouseleave', handleHoverOut)
+
+  /*
+
+    EVENT DRAG IN MOBILE SLIDER
+
+  */
+
+  let dragStartX = 0
+
+  function handleTouchStart(e) {
     isDragging = true
     isMouseOver = false
     dragStartX = e.touches[0].clientX - translateValue
-  })
+  }
 
-  slider.addEventListener('touchmove', (e) => {
-    if (isDragging) {
-      // Limitar el desplazamiento
-      if (
-        Math.abs(translateValue) < totalWidth * 3 &&
-        Math.abs(translateValue) > totalWidth
-      ) {
-        translateValue = e.touches[0].clientX - dragStartX
-        slider.style.transform = `translateX(${translateValue}px)`
-      }
+  function handleTouchMove(e) {
+    const limitSlider =
+      Math.abs(translateValue) < totalWidth * 3 &&
+      Math.abs(translateValue) > totalWidth
+
+    if (isDragging && limitSlider) {
+      translateValue = e.touches[0].clientX - dragStartX
+      slider.style.transform = `translateX(${translateValue}px)`
     }
-  })
+  }
 
-  window.addEventListener('touchend', () => {
-    if (isDragging) {
+  function handleTouchEnd() {
+    if (isDragging || isMouseOver) {
       isDragging = false
-      requestAnimationFrame(startAnimation)
-    }
-
-    if (isMouseOver) {
       isMouseOver = false
-      requestAnimationFrame(startAnimation)
+      requestAnimationFrame(animateSlider)
     }
 
     if (isPressing) {
       isPressing = false
     }
-  })
+  }
 
-  requestAnimationFrame(startAnimation)
+  slider.addEventListener('touchstart', handleTouchStart)
+  slider.addEventListener('touchmove', handleTouchMove)
+  window.addEventListener('touchend', handleTouchEnd)
+
+  /*
+
+  BUTTONS
+
+  */
 
   const prevBtn = sliderBtn.children[0]
   const nextBtn = sliderBtn.children[1]
+  const extraSpeed = 10
+  let isPressing = false
 
-  const extraSpeed = 5
-
-  prevBtn.addEventListener('contextmenu', (event) => {
-    event.preventDefault()
-    event.stopPropagation()
-    event.cancelBubble = true
-    event.returnValue = false
-    return false
-  })
-
-  nextBtn.addEventListener('contextmenu', (event) => {
-    event.preventDefault()
-    event.stopPropagation()
-    event.cancelBubble = true
-    event.returnValue = false
-    return false
-  })
-
-  nextBtn.addEventListener('touchstart', (e) => {
-    console.log('touchstart')
+  function handlePressNext(e) {
     e.stopPropagation()
     isPressing = true
     isMouseOver = true
 
     const pressNext = () => {
       if (isPressing && !isDragging) {
-        translateValue -= extraSpeed
-        slider.style.transform = `translateX(${translateValue}px)`
-
-        if (
-          Math.abs(translateValue) >= totalWidth * 3 ||
-          Math.abs(translateValue) <= totalWidth
-        ) {
-          translateValue = -totalWidth * 2
-        }
-
+        updateTranslateValue(-extraSpeed)
         requestAnimationFrame(pressNext)
       }
     }
     pressNext()
-  })
+  }
 
-  prevBtn.addEventListener('touchstart', (e) => {
+  function handlePressPrev(e) {
     e.stopPropagation()
     isPressing = true
     isMouseOver = true
 
     const pressPrev = () => {
       if (isPressing && !isDragging) {
-        translateValue += extraSpeed
-        slider.style.transform = `translateX(${translateValue}px)`
-
-        if (
-          Math.abs(translateValue) >= totalWidth * 3 ||
-          Math.abs(translateValue) <= totalWidth
-        ) {
-          translateValue = -totalWidth * 2
-        }
-
+        updateTranslateValue(extraSpeed)
         requestAnimationFrame(pressPrev)
       }
     }
     pressPrev()
-  })
+  }
 
-  // Event listener para el botón "Siguiente" (Next)
-  nextBtn.addEventListener('mousedown', (e) => {
-    e.stopPropagation()
-    isPressing = true
+  nextBtn.addEventListener('touchstart', handlePressNext)
+  prevBtn.addEventListener('touchstart', handlePressPrev)
+  nextBtn.addEventListener('mousedown', handlePressNext)
+  prevBtn.addEventListener('mousedown', handlePressPrev)
+  window.addEventListener('mouseup', () => (isPressing = false))
 
-    const pressNext = () => {
-      if (isPressing && !isDragging) {
-        translateValue -= extraSpeed
-        slider.style.transform = `translateX(${translateValue}px)`
-
-        if (
-          Math.abs(translateValue) >= totalWidth * 3 ||
-          Math.abs(translateValue) <= totalWidth
-        ) {
-          translateValue = -totalWidth * 2
-        }
-
-        requestAnimationFrame(pressNext)
-      }
-    }
-    pressNext()
-  })
-
-  // Event listener para el botón "Anterior" (Prev)
-  prevBtn.addEventListener('mousedown', (e) => {
-    e.stopPropagation()
-    isPressing = true
-
-    const pressPrev = () => {
-      if (isPressing && !isDragging) {
-        translateValue += extraSpeed
-        slider.style.transform = `translateX(${translateValue}px)`
-
-        if (
-          Math.abs(translateValue) >= totalWidth * 3 ||
-          Math.abs(translateValue) <= totalWidth
-        ) {
-          translateValue = -totalWidth * 2
-        }
-
-        requestAnimationFrame(pressPrev)
-      }
-    }
-    pressPrev()
-  })
-
-  window.addEventListener('mouseup', () => {
-    isPressing = false
-  })
+  requestAnimationFrame(animateSlider)
 }
 
 function generateSlideHTML(slideData) {
