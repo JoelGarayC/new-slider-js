@@ -114,7 +114,7 @@ function handleTranslateSlider(
 
   const prevBtn = sliderBtn.children[0]
   const nextBtn = sliderBtn.children[1]
-  const extraSpeed = 10
+  const extraSpeed = 20
   let isPressing = false
 
   function handlePressNext(e) {
@@ -133,6 +133,7 @@ function handleTranslateSlider(
   function handlePressPrev(e) {
     e.stopPropagation()
     isPressing = true
+    isMouseOver = true
 
     const pressPrev = () => {
       if (isPressing && !isDragging) {
