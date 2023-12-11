@@ -143,26 +143,20 @@ function handleTranslateSlider(
     pressPrev()
   }
 
-  prevBtn.addEventListener('contextmenu', (event) => {
-    event.preventDefault()
-    event.stopPropagation()
-    event.cancelBubble = true
-    event.returnValue = false
+  function handlePressBtn(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    e.cancelBubble = true
+    e.returnValue = false
     return false
-  })
-
-  nextBtn.addEventListener('contextmenu', (event) => {
-    event.preventDefault()
-    event.stopPropagation()
-    event.cancelBubble = true
-    event.returnValue = false
-    return false
-  })
+  }
 
   nextBtn.addEventListener('touchstart', handlePressNext)
   prevBtn.addEventListener('touchstart', handlePressPrev)
   nextBtn.addEventListener('mousedown', handlePressNext)
   prevBtn.addEventListener('mousedown', handlePressPrev)
+  nextBtn.addEventListener('contextmenu', handlePressBtn)
+  prevBtn.addEventListener('contextmenu', handlePressBtn)
 
   /*
 
