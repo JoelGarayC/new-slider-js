@@ -1,5 +1,4 @@
 const SLIDER_URL = './data.json'
-const SITE = 'gestion'
 const ITEMS = 20
 const ITEMS_ROW = 2
 const SPEED_ITEMS_ROW = [0.4, 0.7]
@@ -200,12 +199,6 @@ function generateSliderHTML(sliderData) {
 
 function initializeSlider(dataSlider) {
   const sliderContainer = document.querySelector('.slider-container')
-
-  /** 
-    STYLES CLASS
-  **/
-
-  sliderContainer.classList.add(SITE)
 
   /** 
     CREATE ROWS FORMAT AND SLIDERS IN CONTAINER
