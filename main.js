@@ -1,10 +1,20 @@
 const SLIDER_URL = './data.json'
-const ITEMS = 20
-const ITEMS_ROW = 2
-const SPEED_ITEMS_ROW = [0.4, 0.7]
-const DIRECTION_ROW = ['left', 'left']
 
-function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
+const sliderParamsJSON =
+  '{"items": 20, "itemsRow": 2, "speedItemsRow": [0.4, 0.7]}'
+const SLIDER_PARAMS = JSON.parse(sliderParamsJSON)
+const {
+  items: ITEMS,
+  itemsRow: ITEMS_ROW,
+  speedItemsRow: SPEED_ITEMS_ROW
+} = SLIDER_PARAMS
+
+function handleTranslateSlider(
+  sliderWrapper,
+  speed,
+  middleIndex,
+  direction = 'left'
+) {
   const slider = sliderWrapper.children[0]
   const sliderBtn = sliderWrapper.children[1]
   let slideWidth = slider.firstElementChild.offsetWidth
@@ -221,12 +231,7 @@ function initializeSlider(dataSlider) {
   **/
 
   Array.from(sliderContainer.children).forEach((sliderWrapper, index) => {
-    handleTranslateSlider(
-      sliderWrapper,
-      SPEED_ITEMS_ROW[index],
-      DIRECTION_ROW[index],
-      middleIndex
-    )
+    handleTranslateSlider(sliderWrapper, SPEED_ITEMS_ROW[index], middleIndex)
   })
 }
 
