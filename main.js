@@ -32,7 +32,7 @@ function handleTranslateSlider(
 
   function updateTranslateValue(delta) {
     translateValue += delta
-    slider.style.transform = `translateX(${translateValue}px)`
+    slider.style.transform = `translate3d(${translateValue}px, 0, 0)`
 
     const limitSlider =
       Math.abs(translateValue) >= totalWidth * 3 ||
@@ -99,7 +99,7 @@ function handleTranslateSlider(
 
     if (isDragging && limitSlider) {
       translateValue = e.touches[0].clientX - dragStartX
-      slider.style.transform = `translateX(${translateValue}px)`
+      slider.style.transform = `translate3d(${translateValue}px, 0, 0)`
     }
   }
 
@@ -142,6 +142,22 @@ function handleTranslateSlider(
     }
     pressPrev()
   }
+
+  prevBtn.addEventListener('contextmenu', (event) => {
+    event.preventDefault()
+    event.stopPropagation()
+    event.cancelBubble = true
+    event.returnValue = false
+    return false
+  })
+
+  nextBtn.addEventListener('contextmenu', (event) => {
+    event.preventDefault()
+    event.stopPropagation()
+    event.cancelBubble = true
+    event.returnValue = false
+    return false
+  })
 
   nextBtn.addEventListener('touchstart', handlePressNext)
   prevBtn.addEventListener('touchstart', handlePressPrev)
