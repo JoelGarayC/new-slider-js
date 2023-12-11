@@ -133,7 +133,6 @@ function handleTranslateSlider(
   function handlePressPrev(e) {
     e.stopPropagation()
     isPressing = true
-    isMouseOver = true
 
     const pressPrev = () => {
       if (isPressing && !isDragging) {
