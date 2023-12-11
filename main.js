@@ -108,21 +108,8 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
     }
   }
 
-  function handleTouchEnd() {
-    if (isDragging || isMouseOver) {
-      isDragging = false
-      isMouseOver = false
-      requestAnimationFrame(animateSlider)
-    }
-
-    if (isPressing) {
-      isPressing = false
-    }
-  }
-
   slider.addEventListener('touchstart', handleTouchStart)
   slider.addEventListener('touchmove', handleTouchMove)
-  window.addEventListener('touchend', handleTouchEnd)
 
   /*
 
@@ -138,7 +125,6 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
   function handlePressNext(e) {
     e.stopPropagation()
     isPressing = true
-    isMouseOver = true
 
     const pressNext = () => {
       if (isPressing && !isDragging) {
@@ -152,7 +138,6 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
   function handlePressPrev(e) {
     e.stopPropagation()
     isPressing = true
-    isMouseOver = true
 
     const pressPrev = () => {
       if (isPressing && !isDragging) {
@@ -163,11 +148,24 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
     pressPrev()
   }
 
+  function handleEnd() {
+    if (isMouseOver || isDragging) {
+      isMouseOver = false
+      isDragging = false
+      requestAnimationFrame(animateSlider)
+    }
+
+    if (isPressing) {
+      isPressing = false
+    }
+  }
+
   nextBtn.addEventListener('touchstart', handlePressNext)
   prevBtn.addEventListener('touchstart', handlePressPrev)
   nextBtn.addEventListener('mousedown', handlePressNext)
   prevBtn.addEventListener('mousedown', handlePressPrev)
-  window.addEventListener('mouseup', () => (isPressing = false))
+  window.addEventListener('touchend', handleEnd)
+  window.addEventListener('mouseup', handleEnd)
 
   requestAnimationFrame(animateSlider)
 }
