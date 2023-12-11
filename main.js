@@ -167,7 +167,7 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
   window.addEventListener('touchend', handleEnd)
   window.addEventListener('mouseup', handleEnd)
 
-  requestAnimationFrame(animateSlider)
+  animateSlider()
 }
 
 function generateSlideHTML(slideData) {
