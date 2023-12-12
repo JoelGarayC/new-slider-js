@@ -59,7 +59,6 @@ function handleTranslateSlider(
   */
 
   function handleHover(e) {
-    e.stopPropagation()
     const isDesktop =
       window.innerWidth >= 768 && 'ontouchstart' in window === false
     if (isDesktop) {
@@ -68,15 +67,14 @@ function handleTranslateSlider(
   }
 
   function handleHoverOut(e) {
-    e.stopPropagation()
     if (isMouseOver) {
       isMouseOver = false
       requestAnimationFrame(animateSlider)
     }
   }
 
-  sliderWrapper.addEventListener('mouseover', handleHover)
-  sliderWrapper.addEventListener('mouseleave', handleHoverOut)
+  slider.addEventListener('mouseover', handleHover)
+  slider.addEventListener('mouseleave', handleHoverOut)
 
   /*
 
