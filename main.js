@@ -59,15 +59,19 @@ function handleTranslateSlider(
   */
 
   function handleHover(e) {
+    e.stopPropagation()
     const isDesktop =
       window.innerWidth >= 768 && 'ontouchstart' in window === false
     if (isDesktop) {
       isMouseOver = true
+      console.log('isMouseOver')
     }
   }
 
   function handleHoverOut(e) {
+    e.stopPropagation()
     if (isMouseOver) {
+      console.log('ismouseOver false')
       isMouseOver = false
       requestAnimationFrame(animateSlider)
     }
