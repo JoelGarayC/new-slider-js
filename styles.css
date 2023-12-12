@@ -97,10 +97,31 @@ body {
   width: 3rem;
   height: 100%;
   cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
 }
+
+.slider-btns button:hover {
+  opacity: 1;
+}
+
+.slider-btns button:nth-child(1),
+.slider-btns button:nth-child(2) {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAylpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDkuMS1jMDAxIDc5LjE0NjI4OTk3NzcsIDIwMjMvMDYvMjUtMjM6NTc6MTQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyNS4xIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjcyRjIwRUFFOTEzQjExRUVCOTlGOEI3MDRCQTgzRERDIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjcyRjIwRUFGOTEzQjExRUVCOTlGOEI3MDRCQTgzRERDIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzJGMjBFQUM5MTNCMTFFRUI5OUY4QjcwNEJBODNEREMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NzJGMjBFQUQ5MTNCMTFFRUI5OUY4QjcwNEJBODNEREMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4KuHJ5AAAAqElEQVR42mL4//8/AzIGASDNBcR7gPgBECsyEAAo+tENhBq27z8C3AFiGUoM3PMfE+A1lJCBj/5jBzgNJWSgChA/IcVQvAZCFYAMfU2soQQNhCrSxWPoPSBWJclAIgz9CcQaJBlIhKHfQYaSZCCSoe/xGArXz8RAbUBXLxMw7AdJkULVZEPVhE31rEdp4YAt2dzCInYXiB0YGRmfkJxsqF7AUloFAAQYAB6djVJBB9vxAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* .slider-btns button:nth-child(1):hover,
+.slider-btns button:nth-child(2):hover {
+  display: block;
+} */
 
 .slider-btns button:first-child {
   left: 0;
+  transform: rotate(180deg);
 }
 
 .slider-btns button:last-child {

@@ -212,8 +212,8 @@ function generateSliderHTML(sliderData) {
       ${sliderData.map((slideData) => generateSlideHTML(slideData)).join('')}
     </div>
     <div class="slider-btns">
-      <button type="button"><</button>
-      <button type="button">></button>
+      <button type="button"></button>
+      <button type="button"></button>
     </div>
   </div>
   `
