@@ -61,8 +61,7 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
 
   */
 
-  function handleHover(e) {
-    e.stopPropagation()
+  function handleHover() {
     const isDesktop =
       window.innerWidth >= 768 && 'ontouchstart' in window === false
     if (isDesktop) {
@@ -70,16 +69,15 @@ function handleTranslateSlider(sliderWrapper, speed, direction, middleIndex) {
     }
   }
 
-  function handleHoverOut(e) {
-    e.stopPropagation()
+  function handleHoverOut() {
     if (isMouseOver) {
       isMouseOver = false
       requestAnimationFrame(animateSlider)
     }
   }
 
-  sliderWrapper.addEventListener('mouseover', handleHover)
-  sliderWrapper.addEventListener('mouseleave', handleHoverOut)
+  slider.addEventListener('mouseover', handleHover)
+  slider.addEventListener('mouseleave', handleHoverOut)
 
   /*
 
